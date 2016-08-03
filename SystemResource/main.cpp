@@ -27,8 +27,6 @@ int main()
 	g_strAppDir = str;
 	str +="sysinfo.xml";
 	sys.SaveXmlFile(str);
-	//str +="sysinfo.json";
-	//sys.SaveJsonFile(str);
 	strdat = g_strAppDir;
 	strdat +="sysinfo.dat";
 	sys.lzmaCompressfile(strdat.c_str(),str.c_str());
