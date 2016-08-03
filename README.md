@@ -1,2 +1,2 @@
 # GetSystemInfo
-Get all system information,
+Get windows all system information save as xml/josn
