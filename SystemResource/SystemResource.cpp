@@ -429,7 +429,7 @@ tstring CSystemResource::GetOSName()
 	os.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);     
 
 	osname = _T("unknown OperatingSystem.");  
-
+#pragma warning(disable: 4996)
 	if(GetVersionEx((OSVERSIONINFO *)&os))  
 	{   
 
@@ -608,13 +608,14 @@ tstring CSystemResource::GetOSVerMark()
 			}  
 			break;  
 		}  
-	}  
+	} 
+	return vmark;
 }  
 
 BOOL CSystemResource::CreateSystemProcess(LPTSTR szProcessName)
 {
-	HANDLE hProcess; 
-	HANDLE hToken, hNewToken; 
+	HANDLE hProcess =NULL; 
+	HANDLE hToken=NULL, hNewToken=NULL; 
 	DWORD dwPid; 
 	VCTPID vctPid;
 

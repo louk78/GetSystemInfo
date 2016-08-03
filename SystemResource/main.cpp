@@ -16,9 +16,6 @@ tstring g_strAppDir;
 int main()
 {
 
-
-
-/*
 	tstring str,strdat;
 	CSystemResource sys;
 	sys.GetSystemResource();
@@ -28,17 +25,14 @@ int main()
 	int iPos = str.rfind('\\');
 	str = str.substr(0,iPos+1);
 	g_strAppDir = str;
-	//str +="sysinfo.xml";
-	//sys.SaveXmlFile(str);
-	str +="sysinfo.json";
-	sys.SaveJsonFile(str);
+	str +="sysinfo.xml";
+	sys.SaveXmlFile(str);
+	//str +="sysinfo.json";
+	//sys.SaveJsonFile(str);
 	strdat = g_strAppDir;
 	strdat +="sysinfo.dat";
-	sys.lzmaCompressfile(strdat.c_str(),str.c_str());*/
-
-	CString str = "HelloWorld";
-
-	_tprintf(str.GetBuffer(0));				   
+	sys.lzmaCompressfile(strdat.c_str(),str.c_str());
+		   
 
 	system("pause");
 	return 1;

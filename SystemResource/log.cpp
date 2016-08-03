@@ -4,7 +4,7 @@
 tstring LOG::logFilePath = _T("");
 extern tstring g_strAppDir;
 
-#define LOGTOFILE
+//#define LOGTOFILE
 
 void LOG::show(const TCHAR *format,... )
 {
@@ -114,6 +114,7 @@ BOOL LOG::GetCurTime(tstring &strTime)
 
 void LOG::printError(TCHAR* msg)
 {
+	tstring strMsg;
 	DWORD eNum;
 	TCHAR sysMsg[256];
 	TCHAR* p;
@@ -123,14 +124,26 @@ void LOG::printError(TCHAR* msg)
 		MAKELANGID(LANG_NEUTRAL,SUBLANG_ENGLISH_AUS),
 		sysMsg,256,NULL);
 
+
 	p = sysMsg;
+	/*
 	while((*p >31) || (*p == 9))
 		++p;
 
 	do
 	{
 		*p-- = 0;
-	}while((p >= sysMsg)&&((*p == '.') || (*p < 33)));
+	}while((p >= sysMsg)&&((*p == '.') || (*p < 33)));*/
 
-	show(TEXT("WARING: %s failed with error %d (%s)"),msg,eNum,sysMsg);
+	while (*p)
+	{
+		if (*p != '\r'&&*p != '\n')
+		{
+			strMsg += *p;
+		}
+		p++;
+	}
+
+
+	show(TEXT("WARING: %s failed with error %d (%s)"),msg,eNum,strMsg.c_str());
 }

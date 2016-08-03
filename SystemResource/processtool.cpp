@@ -271,12 +271,12 @@ BOOL CProcessTool::GetProcessExtendInfo(PSYSTEM_PROCESS_INFORMATION pSPI,PPROCES
 	
 
 
-
+	return TRUE;
 }
 
 tstring CProcessTool::GetProcessPriorityClass(HANDLE hProcess)
 {
-
+	return NULL;
 }
 
 void CProcessTool::GetFileDescription(tstring FileName,tstring &strDescription,tstring &strCompanyName)
